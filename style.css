@@ -215,3 +215,47 @@ footer {
         --nav-bg: #252525;
     }
 }
+
+/* Mobile Devices (iPhone, Android) အတွက် သီးသန့် */
+@media screen and (max-width: 600px) {
+    /* ၁။ Navigation ကို ဒေါင်လိုက်ပုံစံ ပြောင်းမယ် */
+    nav {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .nav-links {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        margin-left: 0;
+        font-size: 0.9rem;
+    }
+
+    /* ၂။ Hero Section ကို အပေါ်အောက် ပြောင်းမယ် */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem; /* စာလုံးကို ဖုန်းနဲ့တော်အောင် သေးလိုက်မယ် */
+    }
+
+    /* ၃။ Cards တွေကို တစ်ခုချင်းစီ အစီအရီ ပြမယ် */
+    #features, .skills-container {
+        flex-direction: column;
+        padding: 30px 5%;
+    }
+
+    .card, .skill-card {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
