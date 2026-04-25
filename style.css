@@ -1,19 +1,26 @@
 /* Layout အခြေခံ */
 
+/* ၁။ ပုံမှန် Light Mode အတွက် */
 :root {
-    /* Light Mode အရောင်များ */
     --bg-color: #f8f9fa;
     --card-bg: white;
     --text-color: #333;
-    --nav-bg: white;
 }
 
-[data-theme="dark"] {
-    /* Dark Mode အရောင်များ */
+/* ၂။ MacBook Setting က Dark ဖြစ်နေရင် သို့မဟုတ် ကျွန်တော်တို့က 'dark' class ထည့်ထားရင် */
+@media (prefers-color-scheme: dark) {
+    :root:not(.light-mode-override) { /* Force light လုပ်မထားရင် dark ပြပါ */
+        --bg-color: #1a1a1a;
+        --card-bg: #2d2d2d;
+        --text-color: #f8f9fa;
+    }
+}
+
+/* ၃။ ခလုတ်နှိပ်ပြီး အတင်းပြောင်းချင်တဲ့အခါ သုံးဖို့ */
+.dark-mode-override {
     --bg-color: #1a1a1a;
     --card-bg: #2d2d2d;
     --text-color: #f8f9fa;
-    --nav-bg: #252525;
 }
 
 body {
@@ -197,4 +204,14 @@ footer {
     height: 100%;
     border-radius: 50px;
     transition: width 1s ease-in-out;
+}
+
+/* User ရဲ့ စက်က Dark Mode ထားထားရင် ဒီအရောင်တွေကို သုံးပါ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1a1a1a;
+        --card-bg: #2d2d2d;
+        --text-color: #f8f9fa;
+        --nav-bg: #252525;
+    }
 }

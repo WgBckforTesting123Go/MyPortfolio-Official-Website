@@ -82,12 +82,14 @@
     const body = document.body;
 
     toggleButton.addEventListener('click', () => {
-        if (body.getAttribute('data-theme') === 'dark') {
-            body.removeAttribute('data-theme');
-            toggleButton.innerHTML = '🌓';
-        } else {
-            body.setAttribute('data-theme', 'dark');
+        // body မှာ 'dark-mode-override' ဆိုတဲ့ class ကို အဖွင့်အပိတ် လုပ်တာပါ
+        body.classList.toggle('dark-mode-override');
+        
+        // ခလုတ်ပုံစံလေးပါ ပြောင်းအောင်လုပ်မယ်
+        if (body.classList.contains('dark-mode-override')) {
             toggleButton.innerHTML = '☀️';
+        } else {
+            toggleButton.innerHTML = '🌓';
         }
     });
 </script>
