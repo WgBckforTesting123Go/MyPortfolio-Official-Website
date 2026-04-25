@@ -1,0 +1,200 @@
+/* Layout အခြေခံ */
+
+:root {
+    /* Light Mode အရောင်များ */
+    --bg-color: #f8f9fa;
+    --card-bg: white;
+    --text-color: #333;
+    --nav-bg: white;
+}
+
+[data-theme="dark"] {
+    /* Dark Mode အရောင်များ */
+    --bg-color: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --text-color: #f8f9fa;
+    --nav-bg: #252525;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: 0.3s; /* အရောင်ပြောင်းရင် ချောမွေ့သွားအောင် */
+}
+
+.card, nav {
+    background-color: var(--card-bg) !important;
+    color: var(--text-color);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--card-bg);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-bg);
+    padding: 1rem 10%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #007AFF;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 80px 10%;
+    background: linear-gradient(135deg, #007AFF 0%, #0051a8 100%);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* Button Style */
+.btn {
+    background-color: var(--card-bg);
+    color: #007AFF;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--card-bg);
+    transform: translateY(-3px);
+}
+
+/* Cards Section */
+#features {
+    display: flex;
+    gap: 20px;
+    padding: 50px 10%;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    flex: 1;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px;
+    background: #222;
+    color: white;
+    margin-top: 50px;
+}
+
+/* Hero Section ကို ဘေးတိုက်ပြဖို့ ပြင်ဆင်ခြင်း */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 80px 10%;
+    text-align: left; /* စာသားကို ဘယ်ဘက်ပို့မယ် */
+}
+
+.hero-content { flex: 1; }
+.hero-image { flex: 1; }
+
+/* Navigation Links Hover */
+.nav-links a:hover {
+    color: #007AFF;
+    border-bottom: 2px solid #007AFF;
+    transition: 0.3s;
+}
+
+/* Button Hover ပိုမိုက်အောင်လုပ်ခြင်း */
+.btn:hover {
+    background-color: var(--card-bg);
+    transform: translateY(-5px); /* အပေါ်ကို အနည်းငယ် ကြွတက်လာမယ် */
+    box-shadow: 0 5px 15px rgba(255,255,255,0.4);
+}
+
+/* Card Hover */
+.card:hover {
+    transform: scale(1.02); /* အနည်းငယ် ကြီးလာမယ် */
+    transition: 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Skills Section Styling */
+#skills {
+    padding: 50px 10%;
+    background-color: var(--card-bg);
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Progress Bar Style */
+.progress-bar {
+    background-color: var(--card-bg);
+    border-radius: 50px;
+    height: 10px;
+    width: 100%;
+}
+
+.progress {
+    background: linear-gradient(90deg, #007AFF, #34C759);
+    height: 100%;
+    border-radius: 50px;
+    transition: width 1s ease-in-out;
+}
