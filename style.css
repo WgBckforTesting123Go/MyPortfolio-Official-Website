@@ -259,3 +259,140 @@ footer {
         margin-bottom: 15px;
     }
 }
+
+/* --- Education Section Styling --- */
+
+#education {
+    padding: 60px 10%;
+    background-color: #fff; /* ဒါမှမဟုတ် body နောက်ခံနဲ့တူတူ var(--bg-color) ထားပါ */
+}
+
+#education h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #007AFF; /* Apple Blue Color */
+}
+
+/* ဂျာနယ်လိုမျိုး ၂ ကွက်စီပြဖို့ CSS Grid သုံးမယ် */
+.edu-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Card တစ်ခုချင်းစီရဲ့ Design */
+.edu-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px; /* ပိုဝိုင်းတဲ့ထောင့် */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06); /* နူးညံ့တဲ့ အရိပ် */
+    transition: 0.3s ease;
+    border: 1px solid transparent; /* Hover လုပ်ရင် ပေါ်လာဖို့ */
+}
+
+/* Mouse တင်ရင် ကြွတက်လာတဲ့ Interaction */
+.edu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,122,255,0.15); /* အပြာရောင် သန်းတဲ့အရိပ် */
+    border: 1px solid rgba(0,122,255,0.2);
+}
+
+/* Tags (Beginner/Design) လေးတွေရဲ့ Design */
+.edu-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.edu-tag.beginners {
+    background-color: #e3f2fd; /* Light Blue */
+    color: #0d47a1;
+}
+
+.edu-tag.design {
+    background-color: #e8f5e9; /* Light Green */
+    color: #1b5e20;
+}
+
+.edu-card h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.edu-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* "ဆက်လက်ဖတ်ရှုရန်" Button Design */
+.edu-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #007AFF 0%, #00C6FF 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.edu-btn:hover {
+    box-shadow: 0 4px 15px rgba(0,122,255,0.4);
+    transform: scale(1.05);
+}
+
+/* Tutorial Container */
+.tutorial-container {
+    padding: 40px 10%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.tutorial-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #007AFF;
+}
+
+.meta-data {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+/* Code Block Styling (Mac Terminal ပုံစံလေး) */
+.code-block {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 20px 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Tip Box (အကြံပြုချက်များအတွက်) */
+.tip-box {
+    background-color: #e3f2fd;
+    border-left: 5px solid #2196f3;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+/* Dark Mode အတွက် လိုက်လျောညီထွေဖြစ်အောင် */
+[data-theme="dark"] .code-block {
+    background: #000;
+}
+
+[data-theme="dark"] .tip-box {
+    background-color: #1e3a5f;
+    color: #fff;
+}
