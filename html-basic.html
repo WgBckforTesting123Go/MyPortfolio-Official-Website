@@ -4,14 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML အခြေခံ သင်ခန်းစာ</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- (၁) အရောင်နှင့် စတိုင်လ်သတ်မှတ်ချက်များ --- */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+            --accent-color: #007AFF;
+            --code-bg: #282c34;
+        }
+
+        /* System Dark Mode (iOS/macOS) အလိုအလျောက်ပြောင်းရန် */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1a1a1a;
+                --text-color: #ffffff;
+                --nav-bg: rgba(26, 26, 26, 0.8);
+                --code-bg: #000000;
+            }
+            body { background-color: #1a1a1a !important; }
+        }
+
+        /* Manual Button နဲ့ ပြောင်းရန် */
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --nav-bg: rgba(26, 26, 26, 0.8);
+            --code-bg: #000000;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            transition: 0.3s ease;
+        }
+
+        /* --- (၂) Navigation (ပြန်ဖြည့်ထားသော Tab များ) --- */
+        nav {
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(10px); /* Apple Style Glass Effect */
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { font-weight: bold; font-size: 1.2rem; color: var(--accent-color); }
+
+        .nav-links { display: flex; align-items: center; gap: 20px; }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--accent-color); }
+
+        #theme-toggle {
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid #888;
+            background: none;
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        /* --- (၃) Content Layout --- */
+        .tutorial-container {
+            padding: 40px 10%;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .tutorial-content h1 { color: var(--accent-color); font-size: 2.2rem; margin-top: 0; }
+        .meta-data { color: #888; font-size: 0.9rem; margin-bottom: 30px; }
+
+        .code-block {
+            background: var(--code-bg);
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-family: 'Courier New', monospace;
+        }
+
+        .tip-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        [data-theme="dark"] .tip-box { background-color: #1e3a5f; color: #fff; }
+
+        /* --- (၄) Mobile View Fix --- */
+        @media (max-width: 768px) {
+            nav { padding: 10px 5%; }
+            .nav-links { gap: 12px; }
+            .nav-links a { font-size: 0.85rem; }
+            .tutorial-container { padding: 30px 5%; }
+        }
+    </style>
 </head>
-<body>
+<body id="main-body">
+
     <nav>
         <div class="logo">My Education</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
+            <a href="index.html#projects">Projects</a> <a href="index.html#contact">Contact</a>
             <button id="theme-toggle">🌓</button>
         </div>
     </nav>
@@ -24,11 +140,8 @@
             <p>HTML ဆိုတာ **HyperText Markup Language** ရဲ့ အတိုကောက်ဖြစ်ပြီး ဝဘ်ဆိုဒ်တစ်ခုရဲ့ အရိုးအဆောက်အအုံကို တည်ဆောက်တဲ့ နေရာမှာ သုံးပါတယ်။</p>
 
             <h3>HTML ရဲ့ အခြေခံ Code ပုံစံ</h3>
-            <p>အောက်မှာ ပြထားတာကတော့ HTML ဖိုင်တစ်ခုမှာ မဖြစ်မနေ ပါဝင်ရမယ့် Structure ပါပဲ-</p>
-
             <div class="code-block">
-                <pre>
-<code>&lt;!DOCTYPE html&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;Page Title&lt;/title&gt;
@@ -36,8 +149,7 @@
   &lt;body&gt;
     &lt;h1&gt;Hello World!&lt;/h1&gt;
   &lt;/body&gt;
-&lt;/html&gt;</code>
-                </pre>
+&lt;/html&gt;</code></pre>
             </div>
 
             <h3>သိထားသင့်သော Tags များ</h3>
@@ -53,9 +165,23 @@
         </article>
     </main>
 
-    <footer>
+    <footer style="text-align: center; padding: 40px; color: #888; font-size: 0.9rem;">
         <p>&copy; 2026 Official Website. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script> </body>
+    <script>
+        const btn = document.getElementById('theme-toggle');
+        const body = document.getElementById('main-body');
+
+        btn.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                btn.innerHTML = '🌓';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                btn.innerHTML = '☀️';
+            }
+        });
+    </script>
+</body>
 </html>
